@@ -1,0 +1,29 @@
+# ===== FONTS ===== #
+font_family FiraCode Nerd Font Mono
+bold_font FiraCode Nerd Font Mono Bold
+italic_font FiraCode Nerd Font Mono Italic
+bold_italic_font FiraCode Nerd Font Mono Bold Italic
+
+enable_ligatures yes
+
+# === ICONS === #
+symbol_map U+E000-U+F8FF JetBrainsMono Nerd Font
+symbol_map U+F0000-U+FFFFD JetBrainsMono Nerd Font
+symbol_map U+20000-U+2FA1F JetBrainsMono Nerd Font
+symbol_map U+F0000-U+10FFFF JetBrainsMono Nerd Font
+
+# === GLIFS === #
+symbol_map U+0026 FiraCode Nerd Font Mono
+symbol_map U+0040 FiraCode Nerd Font Mono
+
+# === SIZE === #
+font_size 12
+
+# ===== PLUGINS ===== #
+include ~/.config/kitty/kitty-themes/themes/KanagawaDragon.conf
+
+# ===== AESTHETIC ===== #
+enable_true_color yes
+
+# ===== CHARACTERS ===== #
+font_features FiraCode-Regular +ss03 +ss05

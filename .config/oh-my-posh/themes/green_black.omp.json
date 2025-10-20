@@ -1,0 +1,106 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "version": 3,
+    "final_space": true,
+    "blocks": [
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "type": "os",
+                    "style": "powerline",
+                    "foreground": "#2a2a2a",
+                    "background": "#76946a",
+                    "template": "{{ .Icon }} ",
+                    "properties": {
+                        "arch": "󰣇"
+                    },
+                    "leading_powerline_symbol": "",
+                    "powerline_symbol": ""
+                },
+                {
+                    "type": "session",
+                    "style": "powerline",
+                    "background": "#76946a",
+                    "foreground": "#2a2a2a",
+                    "leading_powerline_symbol": "",
+                    "powerline_symbol": "",
+                    "template": "{{ if .SSHSession }} {{ end }}{{.UserName}}@{{.HostName}}"
+                },
+                {
+                    "type": "path",
+                    "style": "powerline",
+                    "background": "#2a2a2a",
+                    "foreground": "#76946a",
+                    "powerline_symbol": "",
+                    "properties": {
+                        "home_icon": " ",
+                        "style": "full",
+                        "cache_duration": "none",
+                        "folder_icon": " ",
+                        "folder_separator_icon": "  "
+                    }
+                },
+                {
+                    "type": "executiontime",
+                    "style": "powerline",
+                    "background": "#2a2a2a",
+                    "foreground": "#76946a",
+                    "powerline_symbol": "",
+                    "properties": {
+                        "threshold": 100,
+                        "style": "roundrock",
+                        "always_enabled": true
+                    }
+                }
+            ]
+        },
+        {
+            "type": "rprompt",
+            "alignment": "right",
+            "segments": [
+                {
+                    "background": "#2a2a2a",
+                    "foreground": "#74966a",
+                    "invert_powerline": true,
+                    "style": "powerline",
+                    "powerline_symbol": "",
+                    "type": "git"
+                },
+                {
+                    "type": "project",
+                    "style": "powerline",
+                    "powerline_symbol": "",
+                    "foreground": "#74966a",
+                    "background": "#2a2a2a",
+                    "template": "{{ if .Error }}{{ .Error }}{{ else }}{{ if .Version }} {{ .Version }} {{ end }}{{ if eq .Type `dotnet` }}󰪮 {{ else if eq .Type `node` }} {{ end }}{{ .Type }}  {{ end }}{{ if .Name }}{{ .Name }}{{ end }}"
+                },
+                {
+                    "background": "#2a2a2a",
+                    "foreground": "#74966a",
+                    "invert_powerline": true,
+                    "style": "powerline",
+                    "powerline_symbol": "",
+                    "type": "status",
+                    "template": " {{ if eq .Code 0 }} {{ else }} {{ .Code }}{{ end }} ",
+                    "properties": {
+                        "always_enabled": true
+                    }
+                },
+                {
+                    "background": "#74966a",
+                    "foreground": "#2a2a2a",
+                    "properties": {
+                        "time_format": "15:04"
+                    },
+                    "invert_powerline": true,
+                    "style": "diamond",
+                    "template": " {{ .CurrentDate | date .Format }}",
+                    "trailing_diamond": "",
+                    "type": "time"
+                }
+            ]
+        }
+    ]
+}

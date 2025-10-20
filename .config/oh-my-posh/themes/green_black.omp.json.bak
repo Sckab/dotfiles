@@ -1,0 +1,23 @@
+{
+  "$schema": ".../schema.json",
+  "final_space": true,
+  "console_title": true,
+  "blocks": [
+    {
+      "type": "prompt","alignment":"left","segments":[
+        {"type":"text","text":"  ","foreground":"#202126","background":"#008b2b"},
+        {"type":"session","foreground":"#202126","background":"#008b2b","properties":{"display_user":true,"display_host":true,"prefix":" ","postfix":""}},
+        {"type":"text","text":"◤","foreground":"#008b2b","background":"#202126"},
+        {"type":"path","foreground":"#f3f3f3","background":"#000000","properties":{"home_icon":"~","folder_icon":"","style":"folder"}}
+      ]
+    },
+    {
+      "type":"prompt","alignment":"right","segments":[
+        {"type":"git","foreground":"#f3f3f3","background":"#000000","properties":{"branch_icon":"","prefix":" ","postfix":" "}},
+        {"type":"executiontime","foreground":"#f3f3f3","background":"#000000","properties":{"postfix":" "}},
+        {"type":"text","text":"◥","foreground":"#f3f3f3","background":"#000000"},
+        {"type":"time","foreground":"#202126","background":"#008b2b","properties":{"time_format":"15:04:05","prefix":"  "}}
+      ]
+    }
+  ]
+}
