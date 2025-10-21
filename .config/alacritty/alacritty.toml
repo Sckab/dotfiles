@@ -1,0 +1,14 @@
+[font]
+normal = { family = "FiraCode Nerd Font" }
+bold = { family = "FiraCode Nerd Font Bold" }
+italic = { family = "FiraCode Nerd Font Italic" }
+bold_italic = { family = "FiraCode Nerd Font Bold Italic" }
+size = 12
+builtin_box_drawing = false
+
+[window]
+dynamic_padding = true
+decorations = "None"
+
+[colors]
+primary = { background = "#181616" }
