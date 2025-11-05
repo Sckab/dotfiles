@@ -13,6 +13,20 @@ function ytmusic {
         --download-archive ~/yt-archive.txt "$1" && mpc update
 }
 
+function reboot_fn {
+    vared -p "Are you sure? (y/n) " -c VARIABLE
+
+    case "$VARIABLE" in
+        y)
+            reboot
+            ;;
+        n)
+        ;;
+        *) echo "Please input only y or n"
+        ;;
+    esac
+}
+
 precmd_functions+=(set_cursor_beam)
 
 # ====== ALIAS ====== #
@@ -53,7 +67,7 @@ alias pi='ping 8.8.8.8'
 alias gpi='gping 8.8.8.8'
 alias mpi='~/.config/scripts/megaping.py'
 alias mpi-google='mpi --host google.com --count 3 --timeout 1 --size 64'
-alias re='reboot'
+alias re='reboot_fn'
 alias cn='clear && nvim'
 alias ce='clear && exa'
 alias cl='clear && lazygit'

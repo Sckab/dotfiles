@@ -2,6 +2,26 @@
 
 # This is a script for utility, made using gum and normal bash.
 
+# global gum styles
+export GUM_INPUT_CURSOR_FOREGROUND="#76946A"
+export GUM_INPUT_PROMPT_FOREGROUND="#76946A"
+export GUM_CHOOSE_HEADER_FOREGROUND="#76946A"
+export GUM_CHOOSE_CURSOR_FOREGROUND="#76946A"
+export GUM_CHOOSE_ITEM_FOREGROUND="#2A2A2A"
+
+# DRY functions
+install_package() {
+    gum input --prompt "what package you want to install? " --placeholder package
+}
+
+remove_package() {
+    gum input --prompt "what package you want to remove? " --placeholder package
+}
+
+# ==============
+# FUNCTIONS FOR SCRIPT
+# ==============
+
 shutdown_fn() {
     shutdown now
 }
@@ -13,7 +33,7 @@ reboot_fn() {
 # AUR
 
 install_aur() {
-    PACKAGES=$(gum input --prompt "what package you want to install? " --placeholder package)
+    PACKAGES=$(install_package)
 
     yay -S "$PACKAGES"
 }
@@ -23,7 +43,7 @@ update() {
 }
 
 remove_aur() {
-    PACKAGES=$(gum input --prompt "what package you want to remove? " --placeholder package)
+    PACKAGES=$(remove_package)
 
     yay -Rns "$PACKAGES"
 }
@@ -31,22 +51,18 @@ remove_aur() {
 # PACMAN
 
 install_pacman() {
-    PACKAGES=$(gum input --prompt "what package you want to install? " --placeholder package)
+    PACKAGES=$(install_package)
 
     sudo pacman -S "$PACKAGES"
 }
 
 remove_pacman() {
-    PACKAGES=$(gum input --prompt "what package you want to remove? " --placeholder package)
+    PACKAGES=$(remove_package)
 
     sudo pacman -Rns "$PACKAGES"
 }
 
 # OTHER
-
-projects() {
-    . ~/.config/scripts/projects.sh
-}
 
 tree_fn() {
     tree . -I 'node_modules|.next|.nuxt|dist|out|.cache|bin|obj|TestResults|__pycache__|venv|.idea|.vscode|.git' --dirsfirst -C
@@ -63,24 +79,49 @@ open_file() {
 }
 
 commit() {
-    COMMIT_MESSAGE=$(gum input --prompt "write the message: " --placeholder "message")
+    if [ ! -d .git ]; then
+        gum style \
+            --border rounded \
+            --border-foreground="#C34043" \
+            --foreground="#C34043" \
+            " NOT IN A GIT REPO "
 
-    git add . && git commit -m "$COMMIT_MESSAGE" && git push
+        return
+    else
+        COMMIT_MESSAGE=$(gum input --prompt "write the message: " --placeholder "message")
+
+        ORIGIN_BRANCH=$(gum input \
+            --prompt "on what branch and remote you want to push? " \
+            --placeholder "remote and branch (leave blank for the upstream)")
+
+        GIT_PUSH_AND_COMMIT=$(git add . && git commit -m "$COMMIT_MESSAGE" && git push "$ORIGIN_BRANCH")
+
+        gum confirm && $GIT_PUSH_AND_COMMIT
+    fi
 }
 
 # ==============
 # ACTUAL SCRIPT
 # ==============
 
-SELECTION=$(gum choose shutdown reboot update "install from aur" "remove from aur" "install from pacman" "remove from pacman" projects tree "kanagawa palette" "open a file" commit --header "Choose what you want to do")
+SELECTION=$(
+    gum choose \
+        --header "Choose what you want to do" \
+        --height=11 \
+        "shutdown" "reboot" "update" "install from aur" "remove from aur" "install from pacman" "remove from pacman" "tree" "kanagawa palette" "open a file" "commit"
+)
 
 case "$SELECTION" in
-shutdown)
+"shutdown")
     shutdown_fn
     ;;
 
-reboot)
+"reboot")
     reboot_fn
+    ;;
+
+"update")
+    update
     ;;
 
 "install from aur")
@@ -99,11 +140,7 @@ reboot)
     remove_pacman
     ;;
 
-projects)
-    projects
-    ;;
-
-tree)
+"tree")
     tree_fn
     ;;
 
@@ -115,7 +152,7 @@ tree)
     open_file
     ;;
 
-commit)
+"commit")
     commit
     ;;
 
