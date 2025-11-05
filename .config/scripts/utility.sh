@@ -9,6 +9,19 @@ export GUM_CHOOSE_HEADER_FOREGROUND="#76946A"
 export GUM_CHOOSE_CURSOR_FOREGROUND="#76946A"
 export GUM_CHOOSE_ITEM_FOREGROUND="#2A2A2A"
 
+# ==============
+# TITLE SCREEN
+# ==============
+TEXT=$(gum format -- "_made by Sckab_")
+
+gum style \
+    --border rounded \
+    --border-foreground="#76946A" \
+    --foreground="#76946A" \
+    --align="center" \
+    " UTILITY SCRIPT
+$TEXT   "
+
 # DRY functions
 install_package() {
     gum input --prompt "what package you want to install? " --placeholder package
@@ -18,15 +31,43 @@ remove_package() {
     gum input --prompt "what package you want to remove? " --placeholder package
 }
 
+no_package() {
+    if [ -z "$1" ]; then
+        gum style \
+            --border rounded \
+            --border-foreground="#C34043" \
+            --foreground="#C34043" \
+            " NO PACKAGE PROVIDED "
+
+        return 1
+    fi
+}
+
 # ==============
 # FUNCTIONS FOR SCRIPT
 # ==============
 
 shutdown_fn() {
+    gum confirm \
+        --prompt.foreground="#76946A" \
+        --selected.foreground="#2A2A2A" \
+        --selected.background="#76946A" \
+        --unselected.foreground="#76946A" \
+        --unselected.background="#2A2A2A" \
+        "are you sure you want to shutdown?" || return
+
     shutdown now
 }
 
 reboot_fn() {
+    gum confirm \
+        --prompt.foreground="#76946A" \
+        --selected.foreground="#2A2A2A" \
+        --selected.background="#76946A" \
+        --unselected.foreground="#76946A" \
+        --unselected.background="#2A2A2A" \
+        "are you sure you want to reboot?" || return
+
     reboot
 }
 
@@ -35,17 +76,21 @@ reboot_fn() {
 install_aur() {
     PACKAGES=$(install_package)
 
-    yay -S "$PACKAGES"
-}
+    no_package "$PACKAGES" || return
 
-update() {
-    yay -Syu
+    yay -S "$PACKAGES"
 }
 
 remove_aur() {
     PACKAGES=$(remove_package)
 
+    no_package "$PACKAGES" || return
+
     yay -Rns "$PACKAGES"
+}
+
+update() {
+    yay -Syu
 }
 
 # PACMAN
@@ -53,11 +98,15 @@ remove_aur() {
 install_pacman() {
     PACKAGES=$(install_package)
 
+    no_package "$PACKAGES" || return
+
     sudo pacman -S "$PACKAGES"
 }
 
 remove_pacman() {
     PACKAGES=$(remove_package)
+
+    no_package "$PACKAGES" || return
 
     sudo pacman -Rns "$PACKAGES"
 }
@@ -90,13 +139,25 @@ commit() {
     else
         COMMIT_MESSAGE=$(gum input --prompt "write the message: " --placeholder "message")
 
+        gum confirm \
+            --prompt.foreground="#76946A" \
+            --selected.foreground="#2A2A2A" \
+            --selected.background="#76946A" \
+            --unselected.foreground="#76946A" \
+            --unselected.background="#2A2A2A" \
+            "Are you sure you want to commit with this message: \"$COMMIT_MESSAGE\"?" || return
+
+        git add . && git commit -m "$COMMIT_MESSAGE"
+
         ORIGIN_BRANCH=$(gum input \
-            --prompt "on what branch and remote you want to push? " \
+            --prompt "On what branch and remote you want to push? " \
             --placeholder "remote and branch (leave blank for the upstream)")
 
-        GIT_PUSH_AND_COMMIT=$(git add . && git commit -m "$COMMIT_MESSAGE" && git push "$ORIGIN_BRANCH")
-
-        gum confirm && $GIT_PUSH_AND_COMMIT
+        if [ -n "$ORIGIN_BRANCH" ]; then
+            git push "$ORIGIN_BRANCH"
+        else
+            git push
+        fi
     fi
 }
 
@@ -157,6 +218,6 @@ case "$SELECTION" in
     ;;
 
 *)
-    echo default
+    gum style --border rounded --border-foreground="#76946A" --foreground="#76946A" " Nothing selected, exiting... "
     ;;
 esac
