@@ -63,7 +63,7 @@ alias please='sudo'
 alias ze='zellij'
 alias kanagawa='~/.config/scripts/kanagawa_palette.sh'
 alias py='python3'
-alias pi='ping 8.8.8.8'
+alias pin='ping 8.8.8.8'
 alias gpi='gping 8.8.8.8'
 alias mpi='~/.config/scripts/megaping.py'
 alias mpi-google='mpi --host google.com --count 3 --timeout 1 --size 64'
@@ -99,3 +99,4 @@ alias ib='imv -b 181616'
 alias i='imv'
 alias nm='NVIM_APPNAME=nvim-minimal nvim'
 alias u="~/.config/scripts/utility.sh"
+alias pi="~/.config/scripts/project-initter/main.sh"
