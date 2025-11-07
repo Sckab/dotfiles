@@ -30,8 +30,9 @@ function reboot_fn {
 precmd_functions+=(set_cursor_beam)
 
 # ====== ALIAS ====== #
-alias ls='exa --icons'
-alias lsa='exa -a --icons'
+alias ls='eza --icons'
+alias lsa='eza -a --icons'
+alias ll='eza -lh'
 alias c='clear'
 alias grep='grep --color=auto'
 alias clock='tty-clock -c -C 2 -s -S'

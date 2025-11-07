@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 PROJECT_DIRS=(
+    "$HOME/Programmazione/Cpp/file-manager/"
     "$HOME/Programmazione/C#/DINFO"
     "$HOME/website-create-mastery"
     "$HOME/Programmazione/Python"
     "$HOME/.config/nvim-minimal"
+    "$HOME/Programmazione/Cpp"
     "$HOME/Programmazione/C#"
     "$HOME/Programmazione/Go"
     "$HOME/Programmazione/C"
