@@ -331,3 +331,4 @@ zellij_backup
 zshrc.d
 nvim
 tmux
+.conan2/
