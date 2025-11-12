@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PROJECT_DIRS=(
-    "$HOME/Programmazione/Cpp/file-manager/"
+    "$HOME/Programmazione/Cpp/FIMA"
     "$HOME/Programmazione/C#/DINFO"
     "$HOME/website-create-mastery"
     "$HOME/Programmazione/Python"

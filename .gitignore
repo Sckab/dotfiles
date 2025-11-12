@@ -332,3 +332,5 @@ zshrc.d
 nvim
 tmux
 .conan2/
+.config/ZapZap/
+.config/qutebrowser/

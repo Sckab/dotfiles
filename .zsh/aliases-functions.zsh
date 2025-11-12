@@ -30,9 +30,10 @@ function reboot_fn {
 precmd_functions+=(set_cursor_beam)
 
 # ====== ALIAS ====== #
-alias ls='eza --icons'
-alias lsa='eza -a --icons'
-alias ll='eza -lh'
+alias ls='eza -lh'
+alias lsa='eza -alh'
+alias ln='eza --icons'
+alias lna='eza -a --icons'
 alias c='clear'
 alias grep='grep --color=auto'
 alias clock='tty-clock -c -C 2 -s -S'
@@ -101,3 +102,4 @@ alias i='imv'
 alias nm='NVIM_APPNAME=nvim-minimal nvim'
 alias u="~/.config/scripts/utility.sh"
 alias pi="~/.config/scripts/project-initter/main.sh"
+alias m="make"
