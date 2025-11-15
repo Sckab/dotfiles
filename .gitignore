@@ -148,7 +148,6 @@ bpytop
 broot
 browsh
 bspwm
-btop
 calc-launcher.sh
 calcurse
 cava
@@ -172,7 +171,6 @@ elinks
 emaildefaults
 emailidentities
 falkon
-fastfetch
 filetypesrc
 fish
 fix-clock.sh
@@ -320,9 +318,7 @@ virt-manager-launcher.sh
 vitetris
 vlc
 warp-terminal
-waybar
 wlogout
-wofi
 xdg-desktop-portal-kderc
 xsettingsd
 yay
@@ -334,3 +330,4 @@ tmux
 .conan2/
 .config/ZapZap/
 .config/qutebrowser/
+MusicBrainz/
