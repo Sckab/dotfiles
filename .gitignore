@@ -331,3 +331,6 @@ tmux
 .config/ZapZap/
 .config/qutebrowser/
 MusicBrainz/
+.config/bomberrc
+.config/elisarc
+.config/chromium/
