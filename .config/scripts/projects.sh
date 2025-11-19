@@ -15,6 +15,7 @@ PROJECT_DIRS=(
     "$HOME/Documents/scsdc"
     "$HOME/.config/scripts"
     "$HOME/.config/waybar"
+    "$HOME/.config/kitty"
     "$HOME/Programmazione"
     "$HOME/.config/rofi"
     "$HOME/.config/hypr"

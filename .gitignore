@@ -334,3 +334,6 @@ MusicBrainz/
 .config/bomberrc
 .config/elisarc
 .config/chromium/
+.config/akonadiconsolerc
+.config/phishingurlrc
+.anydesk/
