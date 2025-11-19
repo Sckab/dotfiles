@@ -1,0 +1,78 @@
+window {
+    background-color : #181616;
+    border           : 2px solid;
+    border-color     : #76946A;
+    border-radius    : 15px;
+    width            : 25%;
+    height           : 67%;
+}
+
+mainbox {
+    background-color : #181616;
+}
+
+inputbar {
+    background-color : #76946A;
+    children         : [ "textbox-prompt-colon", "entry" ];
+    padding          : 10px;
+}
+
+textbox-prompt-colon {
+    content          : " ";
+    expand           : false;
+    width            : 25px;
+    height           : 25px;
+    vertical-align   : 0.5;
+    horizontal-align : 0.3;
+    background-color : #76946A;
+    color            : #181616;
+    padding-right    : 10px;
+}
+
+entry {
+    background-color : #76946A;
+    placeholder      : "Search...";
+    placeholder-color: #181616DD;
+    color            : #181616;
+}
+
+listview {
+    background-color : #181616;
+    spacing          : 0px;
+}
+
+element {
+    background-color : #181616;
+    children         : [ "element-icon", "element-text" ];
+    spacing          : 0px;
+}
+
+element-icon {
+    background-color : #181616;
+    size             : 30px;
+    padding          : 5px;
+}
+
+element-text {
+    background-color : #181616;
+    color            : #76946A;
+    vertical-align   : 0.5;
+    highlight        : none;
+}
+
+element.selected {
+    background-color : #2a2a2a;
+    children         : [ "element-icon", "element-text" ];
+}
+
+element-icon.selected {
+    background-color : #2a2a2a;
+    size             : 30px;
+    padding          : 5px;
+}
+
+element-text.selected {
+    background-color : #2a2a2a;
+    color            : #76946A;
+    vertical-align   : 0.5;
+}

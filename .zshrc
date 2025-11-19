@@ -29,6 +29,8 @@ export XCURSOR_SIZE=24
 export TERM=kitty
 export TERMINAL=kitty
 export EDITOR=nvim
+export BEMOJI_PICKER_CMD="rofi"
+export BEMOJI_CLIP_CMD="wl-copy"
 
 [ -f "/home/giuliano/.ghcup/env" ] && . "/home/giuliano/.ghcup/env" # ghcup-envexport PATH="$HOME/.ghcup/bin:$PATH"
 
