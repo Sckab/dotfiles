@@ -103,3 +103,4 @@ alias nm='NVIM_APPNAME=nvim-minimal nvim'
 alias u="~/.config/scripts/utility.sh"
 alias pi="~/.config/scripts/project-initter/main.sh"
 alias m="make"
+alias ae="chmod +x"

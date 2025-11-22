@@ -17,6 +17,7 @@ PROJECT_DIRS=(
     "$HOME/.config/waybar"
     "$HOME/.config/kitty"
     "$HOME/Programmazione"
+    "$HOME/.config/tmux"
     "$HOME/.config/rofi"
     "$HOME/.config/hypr"
     "$HOME/.config/nvim"
