@@ -1,8 +1,4 @@
 # ====== FUNCTIONS ====== #
-function set_cursor_block() {
-    echo -ne '\e[2 q'
-}
-
 function set_cursor_beam() {
     echo -ne '\e[6 q'
 }
@@ -13,18 +9,10 @@ function ytmusic {
         --download-archive ~/yt-archive.txt "$1" && mpc update
 }
 
-function reboot_fn {
-    vared -p "Are you sure? (y/n) " -c VARIABLE
-
-    case "$VARIABLE" in
-        y)
-            reboot
-            ;;
-        n)
-        ;;
-        *) echo "Please input only y or n"
-        ;;
-    esac
+function cr_fn()
+{
+    clear
+    cd ~/"$1"
 }
 
 precmd_functions+=(set_cursor_beam)
@@ -59,7 +47,7 @@ alias e='exit'
 alias r='ranger'
 alias l='lazygit'
 alias giulsnet='sudo ~/.config/scripts/giulsnet.sh'
-alias cr='clear && cd ~'
+alias cr='cr_fn'
 alias ncd='ncdu'
 alias please='sudo'
 alias ze='zellij'
@@ -69,7 +57,6 @@ alias pin='ping 8.8.8.8'
 alias gpi='gping 8.8.8.8'
 alias mpi='~/.config/scripts/megaping.py'
 alias mpi-google='mpi --host google.com --count 3 --timeout 1 --size 64'
-alias re='reboot_fn'
 alias cn='clear && nvim'
 alias ce='clear && exa'
 alias cl='clear && lazygit'
