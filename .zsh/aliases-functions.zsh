@@ -9,8 +9,7 @@ function ytmusic {
         --download-archive ~/yt-archive.txt "$1" && mpc update
 }
 
-function cr_fn()
-{
+function cr() {
     clear
     cd ~/"$1"
 }
@@ -21,7 +20,6 @@ precmd_functions+=(set_cursor_beam)
 # DIRECTORIES AND FILES
 alias p='pwd'
 alias c='clear'
-alias cr='cr_fn'
 alias ncd='ncdu'
 alias r='ranger'
 alias ls='eza -lh'
