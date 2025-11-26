@@ -1,10 +1,11 @@
 # ====== IMPORTANT ====== #
-export ZSH="$HOME/.oh-my-zsh"
-export PATH=$PATH:/home/giuliano/.local/bin
-export PATH="$HOME/.npm-global/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$HOME/.local/bin/platform-tool:$PATH"
-export PATH="$HOME/.config/scripts:$PATH"
 export NVM_DIR="$HOME/.nvm"
+export ZSH="$HOME/.oh-my-zsh"
+export PATH="$HOME/.config/scripts:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$PATH:/home/giuliano/.local/bin"
+export PATH="$HOME/Programmazione/Cpp/FIMA/build/:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin/platform-tool:$PATH"
 
 # OMZ-PLUGINS
 source ~/.zsh/gemini-api-key.zsh
@@ -21,16 +22,16 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # ====== EXPORTS ====== #
-export GDK_SCALE=1
-export GDK_DPI_SCALE=1
-export QT_SCALE_FACTOR=1
-export QT_QPA_PLATFORMTHEME=qt5ct
-export XCURSOR_SIZE=24
 export TERM=kitty
-export TERMINAL=kitty
 export EDITOR=nvim
+export GDK_SCALE=1
+export TERMINAL=kitty
+export GDK_DPI_SCALE=1
+export XCURSOR_SIZE=24
+export QT_SCALE_FACTOR=1
 export BEMOJI_PICKER_CMD="rofi"
 export BEMOJI_CLIP_CMD="wl-copy"
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 [ -f "/home/giuliano/.ghcup/env" ] && . "/home/giuliano/.ghcup/env" # ghcup-envexport PATH="$HOME/.ghcup/bin:$PATH"
 
