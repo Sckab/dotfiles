@@ -1,0 +1,16 @@
+:root {
+  --border-color: #2a2a2a;
+  --border-color-active: #76946a;
+
+  --bg-color: #181616;
+  --bg-color-hover: #2a2a2a;
+
+  --border-radius: 12px;
+  --border-size: 2px;
+  --border-style: solid;
+
+  --text-color: rgba(245, 245, 245, 1);
+
+  --window-padding: 2px;
+}
+
