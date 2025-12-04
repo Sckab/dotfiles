@@ -149,12 +149,16 @@ commit() {
 
         git add . && git commit -m "$COMMIT_MESSAGE"
 
-        ORIGIN_BRANCH=$(gum input \
-            --prompt "On what branch and remote you want to push? " \
-            --placeholder "remote and branch (leave blank for the upstream)")
+        REMOTE=$(gum input \
+            --prompt "On what remote you want to push?" \
+            --placeholder "remote (leave blank for the upstream)")
 
-        if [ -n "$ORIGIN_BRANCH" ]; then
-            git push "$ORIGIN_BRANCH"
+        BRANCH=$(gum input \
+            --prompt "On what branch you want to push?" \
+            --placeholder "branch (leave blank for the upstream)")
+
+        if [ -n "$REMOTE" ] && [ -n "$BRANCH" ]; then
+            git push "$REMOTE" "$BRANCH"
         else
             git push
         fi

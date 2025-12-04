@@ -3,7 +3,7 @@
 PROJECT_DIRS=(
     "$HOME/Programmazione/Cpp/FIMA"
     "$HOME/Programmazione/C#/DINFO"
-    "$HOME/website-create-mastery"
+    "$HOME/create-mastery-website"
     "$HOME/Programmazione/Python"
     "$HOME/.config/nvim-minimal"
     "$HOME/Programmazione/Cpp"
