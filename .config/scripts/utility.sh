@@ -150,11 +150,11 @@ commit() {
         git add . && git commit -m "$COMMIT_MESSAGE"
 
         REMOTE=$(gum input \
-            --prompt "On what remote you want to push?" \
+            --prompt "On what remote you want to push? " \
             --placeholder "remote (leave blank for the upstream)")
 
         BRANCH=$(gum input \
-            --prompt "On what branch you want to push?" \
+            --prompt "On what branch you want to push? " \
             --placeholder "branch (leave blank for the upstream)")
 
         if [ -n "$REMOTE" ] && [ -n "$BRANCH" ]; then

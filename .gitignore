@@ -1,5 +1,5 @@
 .android
-.aspnet 
+.aspnet
 .bash_history
 .bash_logout
 .bash_profile
@@ -343,3 +343,4 @@ MusicBrainz/
 musica/
 .config/kolourpaintrc
 .config/angelfish/
+create-mastery-website/
