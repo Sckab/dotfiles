@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 PROJECT_DIRS=(
+    "$HOME/Documents/Create-Mastery/create-mastery-website"
+    "$HOME/Documents/3F-informatica"
     "$HOME/Programmazione/Cpp/FIMA"
     "$HOME/Programmazione/C#/DINFO"
-    "$HOME/create-mastery-website"
     "$HOME/Programmazione/Python"
     "$HOME/.config/nvim-minimal"
     "$HOME/Programmazione/Cpp"
