@@ -6,6 +6,7 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 export PATH="$PATH:/home/giuliano/.local/bin"
 export PATH="$HOME/Programmazione/Cpp/FIMA/build/:$PATH"
 export PATH="$HOME/.cargo/bin:$HOME/.local/bin/platform-tool:$PATH"
+export PATH="$HOME/.local/share/coursier/bin:$PATH"
 
 # OMZ-PLUGINS
 source ~/.zsh/gemini-api-key.zsh
