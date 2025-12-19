@@ -346,3 +346,6 @@ musica/
 create-mastery-website/
 Games/
 .ts_node_repl_history
+.zprofile
+.dotty_history
+presentations/
