@@ -344,3 +344,5 @@ musica/
 .config/kolourpaintrc
 .config/angelfish/
 create-mastery-website/
+Games/
+.ts_node_repl_history

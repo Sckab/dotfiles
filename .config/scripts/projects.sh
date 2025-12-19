@@ -2,6 +2,8 @@
 
 PROJECT_DIRS=(
     "$HOME/Documents/Create-Mastery/create-mastery-website"
+    "$HOME/Programmazione/Html/Portfolio"
+    "$HOME/Programmazione/TypeScript/DL"
     "$HOME/Documents/3F-informatica"
     "$HOME/Programmazione/Cpp/FIMA"
     "$HOME/Programmazione/C#/DINFO"
@@ -13,6 +15,7 @@ PROJECT_DIRS=(
     "$HOME/Programmazione/C"
     "$HOME/.config/nvim-nde"
     "$HOME/website-scsdc-co"
+    "$HOME/.config/ghostty"
     "$HOME/Documents/scsdc"
     "$HOME/.config/scripts"
     "$HOME/.config/waybar"
