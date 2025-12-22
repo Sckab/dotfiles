@@ -1,7 +1,7 @@
 theme = Kanagawa Dragon
 
 font-family = FiraCode Nerd Font
-font-feature = liga, ss03, ss05, cv31, cv30, cv29, ss07
+font-feature = liga, ss03, ss05, cv29, ss07
 
 font-size = 11.5
 
@@ -13,5 +13,7 @@ window-padding-balance = true
 window-decoration = none
 
 mouse-hide-while-typing = true
+
+# custom-shader = ./shaders/retro-terminal.glsl
 
 command = tmux
