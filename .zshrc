@@ -13,6 +13,9 @@ plugins=(
     git
     zsh-bat
     docker
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    you-should-use
 )
 
 source $ZSH/oh-my-zsh.sh
