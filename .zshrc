@@ -23,15 +23,11 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # ====== EXPORTS ====== #
-export TERM=ghostty
 export EDITOR=nvim
 export GDK_SCALE=1
-export TERMINAL=ghostty
 export GDK_DPI_SCALE=1
 export XCURSOR_SIZE=24
 export QT_SCALE_FACTOR=1
-export BEMOJI_PICKER_CMD="rofi"
-export BEMOJI_CLIP_CMD="wl-copy"
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 [ -f "/home/giuliano/.ghcup/env" ] && . "/home/giuliano/.ghcup/env" # ghcup-envexport PATH="$HOME/.ghcup/bin:$PATH"
