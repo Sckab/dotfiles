@@ -30,7 +30,7 @@
                 ""
             ]
         },
-        "on-click": "pavucontrol"
+        "on-click": "hyprpwcenter"
     },
     "network": {
         "interface": "enp8s0",
