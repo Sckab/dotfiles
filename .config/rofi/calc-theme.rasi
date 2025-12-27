@@ -4,7 +4,7 @@ window {
     border-color     : #76946A;
     border-radius    : 15px;
     width            : 25%;
-    height           : 67%;
+    height           : 124px;
 }
 
 mainbox {
@@ -23,7 +23,7 @@ textbox {
 }
 
 inputbar {
-    background-color : #76946A;
+    background-color : #181616;
     children         : [ "textbox-prompt-colon", "entry" ];
     padding          : 10px;
 }
@@ -35,16 +35,16 @@ textbox-prompt-colon {
     height           : 25px;
     vertical-align   : 0.5;
     horizontal-align : 0.3;
-    background-color : #76946A;
-    color            : #181616;
+    background-color : #181616;
+    color            : #76946A;
     padding-right    : 10px;
 }
 
 entry {
-    background-color : #76946A;
+    background-color : #181616;
     placeholder      : "Search...";
-    placeholder-color: #181616DD;
-    color            : #181616;
+    placeholder-color: #76916ADD;
+    color            : #76916A;
 }
 
 listview {
@@ -71,19 +71,3 @@ element-text {
     highlight        : none;
 }
 
-element.selected {
-    background-color : #2a2a2a;
-    children         : [ "element-icon", "element-text" ];
-}
-
-element-icon.selected {
-    background-color : #2a2a2a;
-    size             : 30px;
-    padding          : 5px;
-}
-
-element-text.selected {
-    background-color : #2a2a2a;
-    color            : #76946A;
-    vertical-align   : 0.5;
-}

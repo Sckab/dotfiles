@@ -2,10 +2,10 @@ configuration {
 	modes: "window,drun,run,ssh";
 	font: "Inter 14";
 	show-icons: true;
-	terminal: "kitty";
+	terminal: "ghostty";
 	sort: true;
 	sorting-method: "fzf";
-	sidebar-mode: false;
+	sidebar-mode: true;
 
     timeout {
         action: "kb-cancel";
