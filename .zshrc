@@ -37,3 +37,7 @@ eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/themes/green_black.omp
 eval "$(zoxide init zsh)"
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

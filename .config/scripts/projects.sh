@@ -2,13 +2,16 @@
 
 PROJECT_DIRS=(
     "$HOME/Documents/Create-Mastery/create-mastery-website"
-    "$HOME/Programmazione/Html/Portfolio"
+    "$HOME/Programmazione/Html/angular/angular-counter"
+    "$HOME/Programmazione/Html/learn-react"
+    "$HOME/Programmazione/Html/portfolio"
     "$HOME/Programmazione/TypeScript/DL"
     "$HOME/Documents/3F-informatica"
     "$HOME/Programmazione/Cpp/FIMA"
     "$HOME/Programmazione/C#/DINFO"
     "$HOME/Programmazione/Python"
     "$HOME/.config/nvim-minimal"
+    "$HOME/Programmazione/Html"
     "$HOME/Programmazione/Cpp"
     "$HOME/Programmazione/C#"
     "$HOME/Programmazione/Go"
