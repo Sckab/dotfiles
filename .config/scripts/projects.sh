@@ -3,8 +3,8 @@
 PROJECT_DIRS=(
     "$HOME/Documents/Create-Mastery/create-mastery-website"
     "$HOME/Programmazione/Html/angular/angular-counter"
+    "$HOME/Programmazione/Html/angular/portfolio"
     "$HOME/Programmazione/Html/learn-react"
-    "$HOME/Programmazione/Html/portfolio"
     "$HOME/Programmazione/TypeScript/DL"
     "$HOME/Documents/3F-informatica"
     "$HOME/Programmazione/Cpp/FIMA"
