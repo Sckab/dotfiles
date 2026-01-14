@@ -14,6 +14,5 @@ window-decoration = none
 
 mouse-hide-while-typing = true
 
-# custom-shader = ./shaders/retro-terminal.glsl
+command = /home/giuliano/.config/scripts/update-system.sh
 
-command = tmux
