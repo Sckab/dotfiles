@@ -19,16 +19,32 @@ gum style \
     --border-foreground="#76946A" \
     --foreground="#76946A" \
     --align="center" \
-    " UTILITY SCRIPT
-$TEXT   "
+    " UTILITY  SCRIPT
+ $TEXT   "
 
 # DRY functions
-install_package() {
-    gum input --prompt "what package you want to install? " --placeholder package
+install_package_aur() {
+    yay -Slaq |
+        fzf --tmux="center,60%" -m \
+            --preview='yay -Si {}' \
+            --preview-window="right:60%,wrap" \
+            --bind 'space:toggle-preview'
 }
 
-remove_package() {
-    gum input --prompt "what package you want to remove? " --placeholder package
+install_package_pacman() {
+    comm -23 <(pacman -Slq | sort) <(pacman -Qq | sort) |
+        fzf --tmux="center,60%" -m \
+            --preview='pacman -Si {}' \
+            --preview-window="right:60%,wrap" \
+            --bind 'space:toggle-preview'
+}
+
+remove_package_list() {
+    pacman -Q |
+        fzf --tmux="center,60%" -m \
+            --preview='yay -Si {}' \
+            --preview-window="right:60%,wrap" \
+            --bind 'space:toggle-preview'
 }
 
 no_package() {
@@ -74,19 +90,11 @@ reboot_fn() {
 # AUR
 
 install_aur() {
-    PACKAGES=$(install_package)
+    PACKAGES=$(install_package_aur)
 
     no_package "$PACKAGES" || return
 
     yay -S "$PACKAGES"
-}
-
-remove_aur() {
-    PACKAGES=$(remove_package)
-
-    no_package "$PACKAGES" || return
-
-    yay -Rns "$PACKAGES"
 }
 
 update() {
@@ -96,15 +104,15 @@ update() {
 # PACMAN
 
 install_pacman() {
-    PACKAGES=$(install_package)
+    PACKAGES=$(install_package_pacman)
 
     no_package "$PACKAGES" || return
 
     sudo pacman -S "$PACKAGES"
 }
 
-remove_pacman() {
-    PACKAGES=$(remove_package)
+remove_package() {
+    PACKAGES=$(remove_package_list)
 
     no_package "$PACKAGES" || return
 
@@ -119,12 +127,6 @@ tree_fn() {
 
 kanagawa() {
     ~/.config/scripts/kanagawa_palette.sh
-}
-
-open_file() {
-    FILE=$(gum input --prompt "what file you want to open? " --placeholder "file name")
-
-    gum pager <"$FILE"
 }
 
 commit() {
@@ -172,8 +174,8 @@ commit() {
 SELECTION=$(
     gum choose \
         --header "Choose what you want to do" \
-        --height=11 \
-        "shutdown" "reboot" "update" "install from aur" "remove from aur" "install from pacman" "remove from pacman" "tree" "kanagawa palette" "open a file" "commit"
+        --height=9 \
+        "shutdown" "reboot" "update" "install from aur" "install from pacman" "remove a package" "tree" "kanagawa palette" "commit"
 )
 
 case "$SELECTION" in
@@ -193,16 +195,12 @@ case "$SELECTION" in
     install_aur
     ;;
 
-"remove from aur")
-    remove_aur
-    ;;
-
 "install from pacman")
     install_pacman
     ;;
 
-"remove from pacman")
-    remove_pacman
+"remove a package")
+    remove_package
     ;;
 
 "tree")
@@ -211,10 +209,6 @@ case "$SELECTION" in
 
 "kanagawa palette")
     kanagawa
-    ;;
-
-"open a file")
-    open_file
     ;;
 
 "commit")
