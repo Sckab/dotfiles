@@ -9,9 +9,9 @@
 # ==============
 # SOURCES
 # ==============
-source ~/.config/scripts/project-initter/lib/general-style.sh
-source ~/.config/scripts/project-initter/lib/language/go.sh
-source ~/.config/scripts/project-initter/lib/git.sh
+source ./lib/general-style.sh
+source ./lib/language/go.sh
+source ./lib/git.sh
 
 # set gum styles
 set_styles

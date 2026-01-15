@@ -3,7 +3,7 @@
 # ==============
 # SOURCES
 # ==============
-source ~/.config/scripts/project-initter/lib/general-style.sh
+source ../../lib/general-style.sh
 
 # set gum styles
 set_styles
