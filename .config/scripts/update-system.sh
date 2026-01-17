@@ -21,6 +21,8 @@ ask_update() {
 UPDATES_AUR=$(gum spin --spinner dot --title "Getting AUR updates..." -- yay -Qu | wc -l)
 UPDATES_PACMAN=$(gum spin --spinner dot --title "Getting pacman updates..." -- pacman -Qu | wc -l)
 
+UPDATES_PACMAN=$((UPDATES_PACMAN - 1))
+
 TOTAL_UPDATES=$((UPDATES_AUR + UPDATES_PACMAN))
 
 dashes=$(echo "Total  -> $TOTAL_UPDATES" | sed "s/./-/g")
