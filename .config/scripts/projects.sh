@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
 PROJECT_DIRS=(
-    "$HOME/Documents/Create-Mastery/create-mastery-website"
     "$HOME/Programmazione/Html/angular/angular-counter"
     "$HOME/Programmazione/Html/angular/portfolio"
+    "$HOME/Documents/Create-Mastery/website"
     "$HOME/Programmazione/Html/learn-react"
     "$HOME/Programmazione/TypeScript/DL"
     "$HOME/Documents/3F-informatica"
+    "$HOME/Documents/github-profile"
     "$HOME/Programmazione/Cpp/FIMA"
     "$HOME/Programmazione/C#/DINFO"
     "$HOME/Programmazione/Python"
@@ -29,6 +30,7 @@ PROJECT_DIRS=(
     "$HOME/.config/hypr"
     "$HOME/.config/nvim"
     "$HOME/rage-mode"
+    "$HOME/Documents"
     "$HOME/.config"
     "$HOME/tests"
     "$HOME/.zsh"
