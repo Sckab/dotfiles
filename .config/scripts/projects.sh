@@ -14,6 +14,7 @@ PROJECT_DIRS=(
     "$HOME/.config/nvim-minimal"
     "$HOME/Programmazione/Html"
     "$HOME/Programmazione/Cpp"
+    "$HOME/Programmazione/zig"
     "$HOME/Programmazione/asm"
     "$HOME/Programmazione/C#"
     "$HOME/Programmazione/Go"
