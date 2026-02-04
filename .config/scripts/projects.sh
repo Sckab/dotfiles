@@ -5,6 +5,7 @@ PROJECT_DIRS=(
     "$HOME/Programmazione/Html/angular/portfolio"
     "$HOME/Documents/Create-Mastery/website"
     "$HOME/Programmazione/Html/learn-react"
+    "$HOME/Documents/Create-Mastery/cli"
     "$HOME/Programmazione/TypeScript/DL"
     "$HOME/Documents/3F-informatica"
     "$HOME/Documents/github-profile"

@@ -26,16 +26,17 @@ alias rm='rm -rfv'
 alias ae="chmod +x"
 alias ln='eza --icons'
 alias cn='clear && nvim'
+alias sc='scc --no-cocomo'
 alias cl='clear && lazygit'
 alias cne='clear && neofetch'
 alias cff='clear && fastfetch'
 alias grep='grep --color=auto'
 alias cld='clear && lazydocker'
 alias pj='. ~/.config/scripts/projects.sh'
-alias ls='eza -lh --group-directories-first'
 alias lsa='eza -alh --group-directories-first'
 alias lna='eza -a --icons --group-directories-first'
-alias tr="tree . -I 'node_modules|.next|.nuxt|dist|out|.cache|bin|obj|TestResults|__pycache__|venv|.idea|.vscode|.git' --dirsfirst -C"
+alias ls='eza -lh --group-directories-first --icons=always'
+alias tr="eza -T --group-directories-first --git-ignore --color=always --icons=always -I 'node_modules|.next|.nuxt|dist|out|.cache|bin|obj|TestResults|__pycache__|venv|.idea|.vscode|.git' | sed 's/└──/╰──/g'"
 
 # NVIM
 alias n='nvim'
