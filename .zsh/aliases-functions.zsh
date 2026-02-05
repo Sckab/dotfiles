@@ -10,9 +10,15 @@ function ytmusic {
 }
 
 function cr() {
-    clear
-    cd ~/"$1"
+  clear
+  cd ~/"$1"
 }
+
+_cr_completions() {
+  _arguments '*:directory:_files -/'
+}
+
+compdef _cr_completions cr
 
 precmd_functions+=(set_cursor_beam)
 
