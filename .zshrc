@@ -48,3 +48,7 @@ source <(ng completion script)
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "/home/giuliano/.bun/_bun" ] && source "/home/giuliano/.bun/_bun"
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select

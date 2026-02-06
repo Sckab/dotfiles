@@ -15,7 +15,7 @@ function cr() {
 }
 
 _cr_completions() {
-  _arguments '*:directory:_files -/'
+  _arguments '*:directory:_files -/ -W ~'
 }
 
 compdef _cr_completions cr

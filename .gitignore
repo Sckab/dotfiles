@@ -334,3 +334,6 @@ yt-archive.txt
 .config/Aonsoku
 .bun/
 .npmrc
+.zcompdump
+.config/zed/
+.zfunc
