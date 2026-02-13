@@ -33,8 +33,6 @@ export EDITOR=nvim
 export GDK_SCALE=1
 export GDK_DPI_SCALE=1
 export XCURSOR_SIZE=24
-export QT_SCALE_FACTOR=1
-export QT_QPA_PLATFORMTHEME=qt5ct
 
 # ====== IMPORTS FROM OTHER FILES ====== #
 source ~/.zsh/aliases-functions.zsh

@@ -337,3 +337,13 @@ yt-archive.txt
 .zcompdump
 .config/zed/
 .zfunc
+.config/assets
+.config/emacs/
+.config/nwg-look/
+.config/qt6ct/
+.config/okularrc
+.config/okularpartrc
+.emacs
+.emacs~
+.icons/
+.lmmsrc.xml
