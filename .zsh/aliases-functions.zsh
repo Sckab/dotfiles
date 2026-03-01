@@ -30,7 +30,6 @@ alias ncd='ncdu'
 alias r='ranger'
 alias rm='rm -rfv'
 alias ae="chmod +x"
-alias ln='eza --icons'
 alias cn='clear && nvim'
 alias sc='scc --no-cocomo'
 alias cl='clear && lazygit'
@@ -42,7 +41,7 @@ alias pj='. ~/.config/scripts/projects.sh'
 alias lsa='eza -alh --group-directories-first'
 alias lna='eza -a --icons --group-directories-first'
 alias ls='eza -lh --group-directories-first --icons=always'
-alias tr="eza -T --group-directories-first --git-ignore --color=always --icons=always -I 'node_modules|.next|.nuxt|dist|out|.cache|bin|obj|TestResults|__pycache__|venv|.idea|.vscode|.git' | sed 's/└──/╰──/g'"
+alias tr="eza -T --group-directories-first --git-ignore --color=always --icons=always -I 'node_modules|.next|.nuxt|dist|out|.cache|bin|obj|TestResults|__pycache__|venv|.idea|.vscode|.git'"
 
 # NVIM
 alias n='nvim'
@@ -57,7 +56,7 @@ alias nc='mpd && ncmpcpp'
 # GIT
 alias l='lazygit'
 alias ur='ga README.md && gc -m "update README" && gp'
-alias gitcleanall='git fetch --prune && git remote prune origin && git gc --aggressive --prune=now'
+alias gitca='git fetch --prune && git remote prune origin && git gc --aggressive --prune=now && git pull'
 
 # DEV
 alias m="make"

@@ -1,0 +1,12 @@
+preserve-config-file = true
+depth = 2
+
+[ls]
+icons = true
+long = true
+
+[cloc]
+ignore = ["*.hpp"]
+
+[tree]
+no-tui = true
