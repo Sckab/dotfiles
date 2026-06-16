@@ -93,6 +93,7 @@ alias zc='source ~/.zshrc && clear'
 alias u="~/.config/scripts/utility.sh"
 alias pi="~/.config/scripts/project-initter/main.sh"
 alias ch="cliphist list | fzf --no-sort | cliphist decode | wl-copy"
+alias ce='~/.config/scripts/check-extension/main'
 
 # OTHERS
 alias nf='neofetch'

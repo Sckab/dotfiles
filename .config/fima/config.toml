@@ -1,12 +1,12 @@
 preserve-config-file = true
-depth = 2
+depth = 1
 
 [ls]
 icons = true
 long = true
 
 [cloc]
-ignore = ["*.hpp"]
+ignore = ["toml.hpp"]
 
 [tree]
 no-tui = true

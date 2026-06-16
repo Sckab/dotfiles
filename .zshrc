@@ -8,8 +8,10 @@ export PATH="$HOME/Programmazione/Cpp/FIMA/build/:$PATH"
 export PATH="$HOME/.cargo/bin:$HOME/.local/bin/platform-tool:$PATH"
 export PATH="$HOME/.local/share/coursier/bin:$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/idea/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PNPM_HOME="/home/giuliano/.local/share/pnpm"
+export CMAKE_GENERATOR="Ninja"
 
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
@@ -50,3 +52,7 @@ source <(ng completion script)
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/giuliano/.local/bin:$PATH"
