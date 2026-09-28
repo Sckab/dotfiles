@@ -1,6 +1,6 @@
 * {
-  font-family: "FiraCode Nerd Font", monospace;
-  font-size: 14px;
+  font-family: "Roboto";
+  font-size: 15px;
   color: #76946a;
   font-weight: bold;
 }
@@ -18,6 +18,7 @@ window#waybar {
 
 #workspaces button {
   color: #76946a;
+  padding: 6px;
 }
 
 #workspaces button.active {
@@ -42,30 +43,35 @@ window#waybar {
   background-color: #76946a;
   border-radius: 0px;
   border: none;
-}
-
-#workspaces button:hover * {
-  color: #181616;
+  padding: 3px;
 }
 
 #clock {
-  margin-left: 10px;
+  margin-right: 10px;
   color: #181616;
 }
 
 #pulseaudio {
   color: #181616;
+
+  border-right: #181616 solid 1px;
+  border-left: #181616 solid 1px;
+
+  padding-right: 10px;
+  padding-left: 10px;
+
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 #network {
   color: #181616;
-  margin-right: 7.5px;
-  margin-left: -2.5px;
+
+  margin-right: 5px;
+  margin-left: 10px;
 }
 
 .modules-right {
   background-color: #76946a;
-  padding-left: 20px;
-  padding-right: 20px;
   color: #181616;
 }

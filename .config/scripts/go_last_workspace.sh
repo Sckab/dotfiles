@@ -1,5 +1,3 @@
 #!/bin/bash
-workspaces=$(hyprctl workspaces)
-ids=$(echo "$workspaces" | grep -oP 'ID\s*\K\d+')
-last=$(echo "$ids" | sort -n | tail -1)
-hyprctl dispatch workspace $last
+
+hyprctl dispatch 'hl.dsp.focus({ workspace = "'$(echo $(hyprctl workspaces) | grep -oP "ID\s*\K\d+" | sort -n | tail -1)'", true })'

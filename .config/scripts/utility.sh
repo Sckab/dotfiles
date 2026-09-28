@@ -8,19 +8,31 @@ export GUM_INPUT_PROMPT_FOREGROUND="#76946A"
 export GUM_CHOOSE_HEADER_FOREGROUND="#76946A"
 export GUM_CHOOSE_CURSOR_FOREGROUND="#76946A"
 export GUM_CHOOSE_ITEM_FOREGROUND="#2A2A2A"
+export GUM_CONFIRM_PROMPT_FOREGROUND="#76946A"
+export GUM_CONFIRM_SELECTED_FOREGROUND="#2A2A2A"
+export GUM_CONFIRM_SELECTED_BACKGROUND="#76946A"
+export GUM_CONFIRM_UNSELECTED_FOREGROUND="#76946A"
+export GUM_CONFIRM_UNSELECTED_BACKGROUND="#2A2A2A"
+
+COLS=$(tput cols)
+ROWS=$(tput lines)
+
+SCRIPTS_DIR="$(dirname "$(readlink -f "$0")")"
 
 # ==============
 # TITLE SCREEN
 # ==============
+HEADER_TEXT="Choose what you want to do:"
 TEXT=$(gum format -- "_made by Sckab_")
 
-gum style \
+HEADER=$(gum style \
     --border rounded \
     --border-foreground="#76946A" \
     --foreground="#76946A" \
     --align="center" \
-    " UTILITY  SCRIPT
- $TEXT   "
+    --width="$((${#HEADER_TEXT} - 2))" \
+    "UTILITY  SCRIPT
+$TEXT ")
 
 # DRY functions
 install_package_aur() {
@@ -40,7 +52,7 @@ install_package_pacman() {
 }
 
 remove_package_list() {
-    pacman -Q |
+    pacman -Qq |
         fzf --tmux="center,60%" -m \
             --preview='yay -Si {}' \
             --preview-window="right:60%,wrap" \
@@ -64,25 +76,37 @@ no_package() {
 # ==============
 
 shutdown_fn() {
+    TEXT="are you sure you want to shutdown?"
+
+    LENGTH=${#TEXT}
+
+    PAD_H=$(((COLS - LENGTH) / 2))
+    PAD_V=$(((ROWS - 3) / 2))
+    ((PAD_H < 0)) && PAD_H=0
+    ((PAD_V < 0)) && PAD_V=0
+
     gum confirm \
-        --prompt.foreground="#76946A" \
-        --selected.foreground="#2A2A2A" \
-        --selected.background="#76946A" \
-        --unselected.foreground="#76946A" \
-        --unselected.background="#2A2A2A" \
-        "are you sure you want to shutdown?" || return
+        --no-show-help \
+        --padding="$PAD_V $PAD_H" \
+        "$TEXT" || return
 
     shutdown now
 }
 
 reboot_fn() {
+    TEXT="are you sure you want to reboot?"
+
+    LENGTH=${#TEXT}
+
+    PAD_H=$(((COLS - LENGTH) / 2))
+    PAD_V=$(((ROWS - 3) / 2))
+    ((PAD_H < 0)) && PAD_H=0
+    ((PAD_V < 0)) && PAD_V=0
+
     gum confirm \
-        --prompt.foreground="#76946A" \
-        --selected.foreground="#2A2A2A" \
-        --selected.background="#76946A" \
-        --unselected.foreground="#76946A" \
-        --unselected.background="#2A2A2A" \
-        "are you sure you want to reboot?" || return
+        --no-show-help \
+        --padding="$PAD_V $PAD_H" \
+        "$TEXT" || return
 
     reboot
 }
@@ -119,64 +143,29 @@ remove_package() {
     sudo pacman -Rns "$PACKAGES"
 }
 
-# OTHER
-
-tree_fn() {
-    tree . -I 'node_modules|.next|.nuxt|dist|out|.cache|bin|obj|TestResults|__pycache__|venv|.idea|.vscode|.git' --dirsfirst -C
-}
-
-kanagawa() {
-    ~/.config/scripts/kanagawa_palette.sh
-}
-
-commit() {
-    if [ ! -d .git ]; then
-        gum style \
-            --border rounded \
-            --border-foreground="#C34043" \
-            --foreground="#C34043" \
-            " NOT IN A GIT REPO "
-
-        return
-    else
-        COMMIT_MESSAGE=$(gum input --prompt "write the message: " --placeholder "message")
-
-        gum confirm \
-            --prompt.foreground="#76946A" \
-            --selected.foreground="#2A2A2A" \
-            --selected.background="#76946A" \
-            --unselected.foreground="#76946A" \
-            --unselected.background="#2A2A2A" \
-            "Are you sure you want to commit with this message: \"$COMMIT_MESSAGE\"?" || return
-
-        git add . && git commit -m "$COMMIT_MESSAGE"
-
-        REMOTE=$(gum input \
-            --prompt "On what remote you want to push? " \
-            --placeholder "remote (leave blank for the upstream)")
-
-        BRANCH=$(gum input \
-            --prompt "On what branch you want to push? " \
-            --placeholder "branch (leave blank for the upstream)")
-
-        if [ -n "$REMOTE" ] && [ -n "$BRANCH" ]; then
-            git push "$REMOTE" "$BRANCH"
-        else
-            git push
-        fi
-    fi
-}
-
 # ==============
 # ACTUAL SCRIPT
 # ==============
 
+OPTIONS=("shutdown" "reboot" "browse projects" "update" "install from aur" "install from pacman" "remove a package")
+HEADER+="
+$HEADER_TEXT"
+
+ITEM_WIDTH=0
+
+for OPT in "${OPTIONS[@]}" "$HEADER_TEXT"; do
+    ((${#OPT} > ITEM_WIDTH)) && ITEM_WIDTH=${#OPT}
+done
+
 SELECTION=$(
     gum choose \
-        --header "Choose what you want to do" \
-        --height=9 \
-        "shutdown" "reboot" "update" "install from aur" "install from pacman" "remove a package" "tree" "kanagawa palette" "commit"
+        --header "$HEADER" \
+        --height=${#OPTIONS} \
+        --no-show-help \
+        "${OPTIONS[@]}"
 )
+
+clear
 
 case "$SELECTION" in
 "shutdown")
@@ -185,6 +174,10 @@ case "$SELECTION" in
 
 "reboot")
     reboot_fn
+    ;;
+
+"browse projects")
+    "$SCRIPTS_DIR/projects.sh"
     ;;
 
 "update")
@@ -202,19 +195,6 @@ case "$SELECTION" in
 "remove a package")
     remove_package
     ;;
-
-"tree")
-    tree_fn
-    ;;
-
-"kanagawa palette")
-    kanagawa
-    ;;
-
-"commit")
-    commit
-    ;;
-
 *)
     gum style --border rounded --border-foreground="#76946A" --foreground="#76946A" " Nothing selected, exiting... "
     ;;

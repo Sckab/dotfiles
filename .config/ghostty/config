@@ -5,7 +5,9 @@ font-feature = liga, ss03, ss05, cv29, ss07
 
 font-size = 11.5
 
-foreground = #F9FAF6
+foreground = #dfdfd6
+palette = 7=#dfdfd6
+palette = 15=#dfdfd6
 
 window-padding-x = 5
 window-padding-y = 10,0

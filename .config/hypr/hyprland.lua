@@ -15,14 +15,8 @@ hl.monitor({
 	transform = 1,
 })
 
-local terminal = "ghostty"
-local file_manager = "dolphin"
-local menu = "rofi -show drun"
-local code_editor = "ghostty -e nvim"
-local emoji_picker = "rofi -modi emoji -show emoji -emoji-format '{emoji} - {name}'"
-
 hl.on("hyprland.start", function()
-	hl.exec_cmd("waybar & swaync & hypridle & hyprsysteminfo & hyprpaper")
+	hl.exec_cmd("waybar & hypridle & hyprsysteminfo & hyprpaper & hyprpm reload")
 	hl.exec_cmd(
 		"hyprswitch init --show-title --size-factor 4.5 --workspaces-per-row 6 --custom-css ~/.config/hyprswitch/style.css"
 	)
@@ -38,6 +32,8 @@ end)
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("HYPRCURSOR_THEME", "HyprBibataModernClassicSVG")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "HyprBibataModernClassicSVG")
+hl.env("XCURSOR_SIZE", "24")
 
 hl.config({
 	general = {
@@ -95,6 +91,18 @@ hl.config({
 	cursor = {
 		default_monitor = "HDMI-A-1",
 	},
+
+	plugin = {
+		-- hyprbars = {
+		-- 	bar_height = 25,
+		-- 	on_double_click = "hyprctl dispatch fullscreen 1",
+		-- 	bar_color = "#181616",
+		--
+		-- 	col = {
+		-- 		text = "#76946A",
+		-- 	},
+		-- },
+	},
 })
 
 hl.device({
@@ -102,24 +110,16 @@ hl.device({
 	sensitivity = -1,
 })
 
-hl.bind("SUPER + M", hl.dsp.exit())
-hl.bind("SUPER + P", hl.dsp.window.pseudo())
-hl.bind("SUPER + C", hl.dsp.window.kill())
-hl.bind("SUPER + G", hl.dsp.exec_cmd("gthumb"))
-hl.bind("SUPER + plus", hl.dsp.exec_cmd("~/.config/scripts/calc-launcher.sh"))
-hl.bind("SUPER + F", hl.dsp.exec_cmd("~/.config/scripts/toggle_fullscreen.sh"))
-hl.bind("SUPER + T", hl.dsp.exec_cmd(terminal))
-hl.bind("SUPER + SPACE", hl.dsp.exec_cmd(menu))
-hl.bind("SUPER + E", hl.dsp.exec_cmd(file_manager))
-hl.bind("SUPER + w", hl.dsp.exec_cmd(emoji_picker))
-hl.bind("SUPER + CTRL + B", hl.dsp.exec_cmd("ghostty -e btop"))
-hl.bind("SUPER + CTRL + E", hl.dsp.exec_cmd("emacs"))
-hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("steam"))
-hl.bind("SUPER + CTRL + D", hl.dsp.exec_cmd("discord"))
-hl.bind("SUPER + CTRL + Z", hl.dsp.exec_cmd("chromium"))
-hl.bind("SUPER + CTRL + F", hl.dsp.window.float())
-hl.bind("SUPER + CTRL + V", hl.dsp.exec_cmd(code_editor))
-hl.bind("SUPER + CTRL + A", hl.dsp.exec_cmd("/opt/Aonsoku/aonsoku"))
-hl.bind("SUPER + CTRL + P", hl.dsp.exec_cmd("~/.config/scripts/powershell.sh"))
-hl.bind("SUPER + CTRL + M", hl.dsp.exec_cmd("~/.config/virt-manager-launcher.sh &"))
-hl.bind("SUPER + TAB", hl.dsp.exec_cmd("hyprswitch gui --mod-key super_l --key tab"))
+hl.window_rule({
+	match = { title = "nmrs.tui" },
+	float = true,
+	size = "1200 800",
+	center = true,
+})
+hl.layer_rule({
+	name = "no-anim-for-selection",
+	match = { namespace = "selection" },
+	no_anim = true,
+})
+
+-- require("plugins")

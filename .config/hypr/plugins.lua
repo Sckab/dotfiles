@@ -1,0 +1,23 @@
+-- hl.plugin.hyprbars.add_button({
+-- 	bg_color = "rgb(ff4040)",
+-- 	fg_color = "rgb(ffffff)",
+-- 	size = 18,
+-- 	icon = "",
+-- 	action = "hyprctl dispatch 'hl.dsp.window.close()'",
+-- })
+--
+-- hl.plugin.hyprbars.add_button({
+-- 	bg_color = "rgb(eeee11)",
+-- 	fg_color = "rgb(000000)",
+-- 	size = 18,
+-- 	icon = "",
+-- 	action = [[hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" })']],
+-- })
+
+-- hl.window_rule({ match = { title = ".*" }, ["hyprbars:no_bar"] = true })
+-- hl.window_rule({
+-- 	match = { title = ".*Note Taker.*" },
+-- 	float = true,
+-- 	rounding = 0,
+-- 	["hyprbars:no_bar"] = false,
+-- })

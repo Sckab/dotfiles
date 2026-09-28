@@ -9,6 +9,7 @@ export PATH="$HOME/.cargo/bin:$HOME/.local/bin/platform-tool:$PATH"
 export PATH="$HOME/.local/share/coursier/bin:$PATH"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$HOME/idea/bin:$PATH"
+export PATH="/home/giuliano/.local/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PNPM_HOME="/home/giuliano/.local/share/pnpm"
 export CMAKE_GENERATOR="Ninja"
@@ -54,5 +55,30 @@ fpath+=~/.zfunc; autoload -Uz compinit; compinit
 zstyle ':completion:*' menu select
 
 
-# Added by Antigravity CLI installer
-export PATH="/home/giuliano/.local/bin:$PATH"
+# opencode completion
+_opencode_yargs_completions()
+{
+  local reply
+  local si=$IFS
+  IFS=$'
+' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" opencode --get-yargs-completions "${words[@]}"))
+  IFS=$si
+  if [[ ${#reply} -gt 0 ]]; then
+    _describe 'values' reply
+  else
+    _default
+  fi
+}
+if [[ "'${zsh_eval_context[-1]}" == "loadautofunc" ]]; then
+  _opencode_yargs_completions "$@"
+else
+  compdef _opencode_yargs_completions opencode
+fi
+
+# pnpm
+export PNPM_HOME='/home/giuliano/.local/share/pnpm'
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end

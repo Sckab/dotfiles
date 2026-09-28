@@ -38,7 +38,7 @@ alias cff='clear && fastfetch'
 alias grep='grep --color=auto'
 alias cld='clear && lazydocker'
 alias pj='. ~/.config/scripts/projects.sh'
-alias lsa='eza -alh --group-directories-first'
+alias lsa='eza -alh --group-directories-first --icons=always'
 alias lna='eza -a --icons --group-directories-first'
 alias ls='eza -lh --group-directories-first --icons=always'
 alias tr="eza -T --group-directories-first --git-ignore --color=always --icons=always -I 'node_modules|.next|.nuxt|dist|out|.cache|bin|obj|TestResults|__pycache__|venv|.idea|.vscode|.git'"
@@ -61,7 +61,8 @@ alias gitca='git fetch --prune && git remote prune origin && git gc --aggressive
 # DEV
 alias m="make"
 alias py='python3'
-alias car='cargo run'
+alias car='cargo run --' # i want to directly pass arguments to programs
+alias carq='cargo run -q --' # i want to directly pass arguments to programs
 alias Dr='dotnet run'
 alias cab='cargo build'
 alias cac='cargo check'

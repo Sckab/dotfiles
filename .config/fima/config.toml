@@ -1,12 +1,6 @@
-preserve-config-file = true
-depth = 1
+depth = 20
 
 [ls]
 icons = true
 long = true
-
-[cloc]
-ignore = ["toml.hpp"]
-
-[tree]
-no-tui = true
+group-directories-first = true
